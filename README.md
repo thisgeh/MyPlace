@@ -8,3 +8,6 @@ MyPlace é um site fictício de turismo voltado para tours inesquecíveis nas mo
 
 ## 🎨 Funcionalidades do Site
 - 🖼️ Galeria de imagens das montanhas e auroras boreais
+
+## 📝 Sobre o Projeto
+Este site foi desenvolvido como parte de um trabalho acadêmico, com o objetivo de explorar conceitos de **HTML e CSS**.
