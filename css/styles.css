@@ -1,0 +1,198 @@
+/* criação de variaveis abrangencia geral
+pode ser criado dentro de um container porem sua abrangencia sera somente no container */
+:root {
+    --color-light: #ffffff;
+    --color-dark: #000000;
+    --color-fiap: #dc143c;
+    --transition: .5s
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+ul,
+ol {
+    /* tira o formato de lista mantendo a ordem */
+    list-style: none;
+}
+
+a {
+    color: var(--color-light);
+    /* tirar o sublinhado do texto */
+    text-decoration: none;
+    /* peso da fonte */
+    font-weight: 600;
+    /* tempo de transição */
+    transition: var(--transition)
+}
+
+a:hover {
+    /* cor no link ao encostar */
+    color: var(--color-fiap);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.container {
+    width: 100%;
+    /* altura vh = se adapta ao tamanho da tela que for aberto */
+    height: 100vh;
+    padding: 0 20px;
+    /* degrade da imagem; to algm coisa - sem nda = padrao to bottom, */
+    background-image: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .3)),
+        url(../images/pexels-felix-mittermeier-957002.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* seleciona no centro da imagem e calcula o valor para ^ > */
+    background-position: 50%;
+
+}
+
+.header-page {
+    width: 100%;
+    height: 100px;
+    padding: 0 20px;
+    color: var(--color-light);
+
+    /* so c/ eles eh possivel posicionar o texto*/
+    display: flex;
+    /* posiciona o primeiro filho (header) a direita e o ultimo (filho a direita)
+    space-around deixa eles espaçados mais ao centro
+    - space-end tudo a direita
+    - space-start tudo esquerda
+    -space-center tudo ao centro */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* align-items: self-start; muda posicionamento tb */
+    align-items: center;
+}
+
+.header-menu ol {
+    display: flex;
+    /* so funciona por conta do flex */
+    gap: 40px;
+}
+
+.hero {
+    width: 100%;
+    /* calc calcula uma medida nas telas */
+    height: calc(100vh - 100px);
+    color: var(--color-light);
+    display: flex;
+    /* pra que o flex nao coloque lado a lado o texto (padrão), existe esse */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.hero h2 {
+    /* valor minimo vh -> vmin // valor max vh -> vmax 
+    porém sempre usar o vmin por conta da visualização no celular*/
+    font-size: 5vmin;
+}
+
+.hero h3 {
+    font-size: 3vmin;
+}
+
+.btn {
+    border: 1px solid var(--color-fiap);
+    /* para aumentar a area clicavel */
+    padding: 8px 30px;
+    background-color: var(--color-fiap);
+    border-radius: 70px;
+}
+
+.btn:hover {
+    background-color: transparent;
+    /* background-color: var(--color-light); */
+    color: var(--color-fiap);
+    /* border: var(--color-light) */
+}
+
+.cards {
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.cards h2 {
+    margin: 50px 0;
+    font-size: 3vw;
+}
+
+.card-list {
+    width: 80%;
+    /* melhor forma de centralizar div p tds aparelhos */
+    margin: 20px auto;
+    display: flex;
+    /* wrap = com quebra / rap = sem quebra */
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    row-gap: 60px;
+
+}
+
+.card-item {
+    width: 40%;
+    display: flex;
+    /* flex-direction: row é o padrão */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    box-shadow: 1px 1px 30px #ccc;
+    border-radius: 7px;
+    transition: .5s
+}
+
+.card-item:hover {
+    /* passa o ponteiro sobre o card, ele aumenta
+    escala 1.1 = aumenta 10% // 
+    pode ser usado tbm só scale: 1.1 
+    pra diminuir na transição .x*/
+    transform: scale(1.1);
+}
+
+.card-item img {
+    width: 80%;
+    border-radius: 7px;
+}
+
+.card-item h3 {
+    /* clamp()trabalha com tamanho de acordo com a tela, serve em tudo, 
+    "can i use" para fzr pesquisa se essa aplicação é suportada pela maioria dos browser */
+    font-size: clamp(3vmin, 22px, 4vmin);
+}
+
+.card-item p {
+    width: 80%;
+    /* balancear a quantidade de linhas */
+    text-wrap: balance;
+    /* espaçamento das linhas */
+    line-height: 1.6;
+}
+
+/* pensando no responsivo */
+@media(width <=1024px) {
+    .header-page {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .card-item {
+        /* só colocar aq oq for mudar, pra ñ ficar repetindo codigo */
+        width: 80%;
+    }
+}
